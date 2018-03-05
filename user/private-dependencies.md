@@ -23,14 +23,16 @@ to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
 |:------------------------------|:---------|:----------------------|:-----------------------------|:------------------------------------|
-| **[Deploy Key](#Deploy-Key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
-| **[User Key](#User-Key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
+| **[Deploy Key](#Deploy-Key)** | SSH      | `git@github.com:…`    | single repository            | used by default for main repository |
+| **[User Key](#User-Key)**     | SSH      | `git@github.com:…`    | all repos user has access to | **recommended** for dependencies    |
 | **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
 | **[API token](#API-Token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
 You can use a [dedicated CI user account](#Dedicated-User-Account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
 of repositories, and make sure that that access is read only.
+
+Note that if you are using the default profile created for your `.gitmodules` when you use `git submodule add ...` and you're using either a [Deploy Key](#Deploy-Key) or [User Key](#User-Key) authentication mode, you will need to change the `url` tag from the default `https` URL to your respective `git@github.com:…` URL.
 
 ## Deploy Key
 
